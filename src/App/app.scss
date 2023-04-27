@@ -1,0 +1,26 @@
+@import "../scss/variables";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: $lightblue-background;
+}
+
+.logo-block {
+  margin-top: 50px;
+  color: $lightblue-logo;
+  overflow-wrap: break-word;
+  font-size: 30px;
+  letter-spacing: 10px;
+  width: 130px;
+  font-weight: 600;
+  padding-bottom: 50px;
+  font-family: RobotoSlab;
+}
+
+.logo-top-part {
+  letter-spacing: 13px;
+}

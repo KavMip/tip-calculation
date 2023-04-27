@@ -1,0 +1,35 @@
+@import "../../scss/variables.scss";
+
+.result-block {
+  height: calc(100% - 80px);
+  width: calc(50% - 50px);
+  padding: 40px;
+  padding-left: 25px;
+  padding-right: 25px;
+  max-width: 400px;
+  background-color: $darkblue-background;
+  border-radius: 15px;
+}
+
+.payment-block {
+  display: flex;
+  justify-content: space-between;
+  color: #eaffff;
+  font-family: RobotoSlab;
+}
+
+.payment-description {
+  overflow-wrap: break-word;
+  line-height: 20px;
+  width: 100px;
+}
+
+.payment-per-person {
+  color: #5d9195;
+}
+
+.payment-amount {
+  font-size: 40px;
+  margin-top: 0px;
+  color: #22c4ab;
+}

@@ -1,0 +1,33 @@
+@import "../../scss/variables.scss";
+
+.tipForm-wrapper {
+  width: 50%;
+  margin-top: 20px;
+  max-width: 400px;
+}
+
+.radio-group {
+  color: $text-color;
+  font-weight: bold;
+  font-size: 17px;
+  letter-spacing: 0.1rem;
+  font-family: RobotoSlab;
+  margin-top: 35px;
+}
+
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 35px;
+}
+
+.input-label {
+  color: $text-color;
+  font-weight: bold;
+  font-size: 17px;
+  letter-spacing: 0.1rem;
+  font-family: RobotoSlab;
+}
+

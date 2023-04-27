@@ -1,0 +1,17 @@
+@import "../../../scss/variables.scss";
+
+.calculator-block {
+  background-color: $white;
+  width: 80%;
+  height: 100%;
+  max-height: 400px;
+  max-width: 850px;
+  padding: 20px;
+  padding-left: 45px;
+  padding-right: 45px;
+  height: 500px;
+  border-radius: 22px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.07);
+  display: flex;
+  justify-content: space-between;
+}

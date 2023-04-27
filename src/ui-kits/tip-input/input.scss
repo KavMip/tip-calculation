@@ -1,0 +1,52 @@
+@import "../../scss/variables.scss";
+
+.input-label {
+  color: $text-color;
+  font-weight: bold;
+  font-size: 17px;
+  letter-spacing: 0.1rem;
+  font-family: RobotoSlab;
+}
+
+.input-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  height: 40px;
+  border-radius: 5px;
+  background-color: $background-input;
+  text-align: center;
+  border: 2px solid $background-input;
+  margin-top: 5px;
+}
+
+.input {
+  width: 100%;
+  background-color: $background-input;
+  text-align: right;
+  border-color: $background-input;
+  outline: unset;
+  padding: 0;
+  outline-offset: unset;
+  border-width: 0px;
+  border-radius: 5px;
+  padding-right: 10px;
+  font-size: 20px;
+  color: $input-text;
+}
+.small-input {
+  max-width: 100px;
+}
+
+.input-icon {
+  margin-left: 15px;
+  margin: auto 0 auto 20px;
+  * {
+    stroke: #abbfc0;
+    height: 20px;
+  }
+}
+
+.input-wrapper_active {
+  border: 2px solid $border-input;
+}
