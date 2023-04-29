@@ -5,7 +5,7 @@
   width: 100px;
   height: 40px;
   position: relative;
-  background-color: #00474b;
+  background-color: $button-dart-text-color;
   border-radius: 5px;
   font-family: RobotoSlab;
   font-size: 18px;
@@ -25,7 +25,7 @@
   right: 0;
   bottom: 0;
   cursor: pointer;
-  color: #fff;
+  color: $white;
 }
 
 .button input[type="radio"] {
@@ -34,7 +34,7 @@
 }
 
 .button input[type="radio"]:checked + label {
-  background: #9fe8df;
+  background: $dark-white;
   border-radius: 4px;
   color: $button-dart-text-color;
 }
