@@ -1,14 +1,24 @@
-import { FC, useMemo } from "react";
+import { FC, useMemo, useState, useEffect } from "react";
 import styles from "./paymentResult.module.scss";
-import { tipCalculatorType as TipCalculatorType } from "../../types/tipCalculatorTypes/tipTypes";
-import Button from "../../ui-kits/submit-button/Button";
+import { tipCalculatorType as TipCalculatorType } from "../../interfaces/tips/tipTypes";
+import ResetButton from "../../ui-kits/submit-button/SubmitButton";
 
-type Props = {
+interface Props {
   values: TipCalculatorType;
   handleReset: () => void;
-};
+}
 
 const PaymentResult: FC<Props> = ({ values, handleReset }) => {
+  const [disabled, setDisabled] = useState(false);
+
+  useEffect(() => {
+    if (values.billAmount && values.numberOfPeople && values.tipPercent) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
+  }, [values]);
+
   const tipAmount = useMemo(() => {
     return (
       (values.billAmount * (+values.tipPercent / 100)) / values.numberOfPeople
@@ -23,7 +33,7 @@ const PaymentResult: FC<Props> = ({ values, handleReset }) => {
     <div className={styles["result-block"]}>
       <div className={styles["payment-block"]}>
         <p className={styles["payment-description"]}>
-          Tip Amount{" "}
+          Tip Amount
           <span className={styles["payment-per-person"]}>/ person</span>
         </p>
         <p className={styles["payment-amount"]}>
@@ -42,7 +52,7 @@ const PaymentResult: FC<Props> = ({ values, handleReset }) => {
             : "$0.00"}
         </p>
       </div>
-      <Button handleReset={handleReset}></Button>
+      <ResetButton disabled={disabled} handleReset={handleReset} />
     </div>
   );
 };

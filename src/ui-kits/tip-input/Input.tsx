@@ -8,7 +8,7 @@ import {
 import styles from "./input.module.scss";
 import { Field, FieldAttributes } from "formik";
 
-type Props = {
+interface Props {
   name: string;
   value: number | string;
   placeholder: string;
@@ -19,7 +19,7 @@ type Props = {
   Icon?: FC;
   handleChange: ChangeEventHandler<HTMLInputElement>;
   handleBlur: FocusEventHandler<HTMLInputElement>;
-};
+}
 
 const Input: FC<Props> = ({
   name,
@@ -45,41 +45,39 @@ const Input: FC<Props> = ({
   };
 
   return (
-    <>
-      <Field name={name}>
-        {({ field }: FieldAttributes<any>) => (
-          <div
-            className={
-              errors && touched
-                ? `${styles["input-wrapper"]} ${styles["input-error"]}`
-                : focused && className
-                ? `${styles[className]} ${styles["input-wrapper"]} ${styles["input-wrapper_active"]}`
-                : className
-                ? `${styles[className]} ${styles["input-wrapper"]}`
-                : focused
-                ? `${styles["input-wrapper"]} ${styles["input-wrapper_active"]}`
-                : `${styles["input-wrapper"]}`
-            }
-          >
-            {Icon && (
-              <span className={styles["input-icon"]}>
-                <Icon />
-              </span>
-            )}
-            <input
-              className={styles["input"]}
-              type={type}
-              {...field}
-              placeholder={placeholder}
-              onChange={handleChange}
-              onBlur={handleBlured}
-              onFocus={handleFocus}
-              value={value}
-            />
-          </div>
-        )}
-      </Field>
-    </>
+    <Field name={name}>
+      {({ field }: FieldAttributes<any>) => (
+        <div
+          className={
+            errors && touched
+              ? `${styles["input-wrapper"]} ${styles["input-error"]}`
+              : focused && className
+              ? `${styles[className]} ${styles["input-wrapper"]} ${styles["input-wrapper_active"]}`
+              : className
+              ? `${styles[className]} ${styles["input-wrapper"]}`
+              : focused
+              ? `${styles["input-wrapper"]} ${styles["input-wrapper_active"]}`
+              : `${styles["input-wrapper"]}`
+          }
+        >
+          {Icon && (
+            <span className={styles["input-icon"]}>
+              <Icon />
+            </span>
+          )}
+          <input
+            className={styles["input"]}
+            type={type}
+            {...field}
+            placeholder={placeholder}
+            onChange={handleChange}
+            onBlur={handleBlured}
+            onFocus={handleFocus}
+            value={value !== 0 && value !== "0" ? value : null}
+          />
+        </div>
+      )}
+    </Field>
   );
 };
 export default Input;

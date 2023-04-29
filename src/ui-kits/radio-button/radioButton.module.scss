@@ -14,35 +14,35 @@
   margin-top: 10px;
   margin-left: 0px;
   min-width: 100px;
-}
 
-.button label,
-.button input {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  cursor: pointer;
-  color: $white;
-}
+  label,
+  input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    color: $white;
+  }
 
-.button input[type="radio"] {
-  opacity: 0.011;
-  z-index: 100;
-}
+  label{
+    cursor: pointer;
+    z-index: 90;
+    line-height: 1.8em;
+  }
 
-.button input[type="radio"]:checked + label {
-  background: $dark-white;
-  border-radius: 4px;
-  color: $button-dart-text-color;
-}
+  input[type="radio"] {
+    opacity: 0.011;
+    z-index: 100;
 
-.button label {
-  cursor: pointer;
-  z-index: 90;
-  line-height: 1.8em;
+    &:checked + label {
+      background: $dark-white;
+      border-radius: 4px;
+      color: $button-dart-text-color;
+    }
+  }
 }
 
 input::-webkit-outer-spin-button {

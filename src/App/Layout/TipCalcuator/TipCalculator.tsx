@@ -3,7 +3,7 @@ import PaymentResult from "../../../components/PaymentResult/PaymentResult";
 import TipCalculatorForm from "../../../components/TipCalculatorForm/TipCalculatorForm";
 import styles from "./tipCalculator.module.scss";
 import { Formik, Form } from "formik";
-import { tipCalculatorType as TipCalculatorType } from "../../../types/tipCalculatorTypes/tipTypes";
+import { tipCalculatorType as TipCalculatorType } from "../../../interfaces/tips/tipTypes";
 import { TipFormValidationSchema } from "../../../validation-schemas/tipFormValidationSchema";
 
 const TipCalculator: FC = () => {

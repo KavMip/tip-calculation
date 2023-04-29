@@ -27,11 +27,10 @@
 
 .payment-per-person {
   color: $light-dark-text-color;
-}
-
-.payment-per-person::before {
-  content: "\a";
-  white-space: pre;
+  &::before {
+    content: "\a";
+    white-space: pre;
+  }
 }
 
 .payment-amount {

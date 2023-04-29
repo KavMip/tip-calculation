@@ -1,5 +1,5 @@
 import { FC } from "react";
-import styles from "./button.module.scss";
+import styles from "./radioButton.module.scss";
 import { Field, FieldAttributes } from "formik";
 
 interface Props extends FieldAttributes<any> {
@@ -9,7 +9,7 @@ interface Props extends FieldAttributes<any> {
   value: string;
 }
 
-const Button: FC<Props> = ({ id, name, type, value, values, handleChange }) => {
+const RadioButton: FC<Props> = ({ id, name, type, value, values, handleChange }) => {
   return (
     <Field id={id} name={name} type={type} value={value}>
       {({ field }: FieldAttributes<any>) => {
@@ -39,4 +39,4 @@ const Button: FC<Props> = ({ id, name, type, value, values, handleChange }) => {
   );
 };
 
-export default Button;
+export default RadioButton;
