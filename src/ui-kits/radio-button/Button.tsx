@@ -1,5 +1,5 @@
 import { FC } from "react";
-import "./button.scss";
+import styles from "./button.module.scss";
 import { Field, FieldAttributes } from "formik";
 
 interface Props extends FieldAttributes<any> {
@@ -12,10 +12,10 @@ interface Props extends FieldAttributes<any> {
 const Button: FC<Props> = ({ id, name, type, value, values, handleChange }) => {
   return (
     <Field id={id} name={name} type={type} value={value}>
-      {({ field, form, meta }: FieldAttributes<any>) => {
+      {({ field }: FieldAttributes<any>) => {
         return (
           <>
-            <div className="button">
+            <div className={styles["button"]}>
               <input
                 type="radio"
                 value={value}
@@ -25,7 +25,10 @@ const Button: FC<Props> = ({ id, name, type, value, values, handleChange }) => {
                 checked={values.tipPercent === value}
                 onChange={handleChange}
               />
-              <label className="btn btn-default" htmlFor={name}>
+              <label
+                className={`${styles["btn"]} ${styles["btn-default"]}`}
+                htmlFor={name}
+              >
                 {value}%
               </label>
             </div>

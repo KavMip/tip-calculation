@@ -36,11 +36,25 @@
 .button input[type="radio"]:checked + label {
   background: #9fe8df;
   border-radius: 4px;
-  color: #004140;
+  color: $button-dart-text-color;
 }
 
 .button label {
   cursor: pointer;
   z-index: 90;
   line-height: 1.8em;
+}
+
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
 }

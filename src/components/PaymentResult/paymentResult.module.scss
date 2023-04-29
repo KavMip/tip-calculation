@@ -1,11 +1,13 @@
 @import "../../scss/variables.scss";
 
 .result-block {
+  position: relative;
   height: calc(100% - 80px);
   width: calc(50% - 50px);
   padding: 40px;
   padding-left: 25px;
   padding-right: 25px;
+  min-width: 250px;
   max-width: 400px;
   background-color: $darkblue-background;
   border-radius: 15px;
@@ -14,22 +16,42 @@
 .payment-block {
   display: flex;
   justify-content: space-between;
-  color: #eaffff;
+  color: $white-text-color;
   font-family: RobotoSlab;
 }
 
 .payment-description {
   overflow-wrap: break-word;
   line-height: 20px;
-  width: 100px;
 }
 
 .payment-per-person {
-  color: #5d9195;
+  color: $light-dark-text-color;
+}
+
+.payment-per-person::before {
+  content: "\a";
+  white-space: pre;
 }
 
 .payment-amount {
   font-size: 40px;
   margin-top: 0px;
-  color: #22c4ab;
+  color: $turquoise;
+}
+
+@media screen and (max-width: 706px) {
+  .result-block {
+    margin-top: 45px;
+    width: 74%;
+    height: auto;
+    max-width: unset;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .result-block {
+    width: 85%;
+    min-width: unset;
+  }
 }

@@ -24,3 +24,9 @@
 .logo-top-part {
   letter-spacing: 13px;
 }
+
+@media screen and (max-width: 915px) {
+  .main {
+    height: auto;
+  }
+}

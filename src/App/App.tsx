@@ -1,11 +1,12 @@
+import { FC } from "react";
 import TipCalculator from "./Layout/TipCalcuator/TipCalculator";
-import "./app.scss";
+import styles from "./app.module.scss";
 
-const App = () => {
+const App: FC = () => {
   return (
-    <main className="main">
-      <div className="logo-block">
-        <span className="logo-top-part">SPLI</span>TTER
+    <main className={styles["main"]}>
+      <div className={styles["logo-block"]}>
+        <span className={styles["logo-top-part"]}>SPLI</span>TTER
       </div>
       <TipCalculator />
     </main>

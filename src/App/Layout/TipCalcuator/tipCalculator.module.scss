@@ -3,15 +3,38 @@
 .calculator-block {
   background-color: $white;
   width: 80%;
-  height: 100%;
-  max-height: 400px;
-  max-width: 850px;
-  padding: 20px;
-  padding-left: 45px;
-  padding-right: 45px;
-  height: 500px;
+  max-width: 900px;
+  padding: 20px 45px 45px 45px;
   border-radius: 22px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.07);
   display: flex;
   justify-content: space-between;
+}
+
+.tipForm-wrapper {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 915px) {
+  .calculator-block {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 706px) {
+  .tipForm-wrapper {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .calculator-block {
+    width: 93%;
+    padding: 5px 10px 10px 10px;
+  }
 }
