@@ -1,6 +1,12 @@
-import { FC, useState, ChangeEventHandler, FocusEventHandler } from "react";
+import {
+  FC,
+  useState,
+  ChangeEventHandler,
+  FocusEventHandler,
+  FocusEvent,
+} from "react";
 import styles from "./input.module.scss";
-import { Field } from "formik";
+import { Field, FieldAttributes } from "formik";
 
 type Props = {
   name: string;
@@ -29,11 +35,11 @@ const Input: FC<Props> = ({
 }: Props) => {
   const [focused, setFocused] = useState(false);
 
-  const handleFocus = (e: any) => {
+  const handleFocus = (e: FocusEvent<HTMLInputElement>) => {
     setFocused(true);
   };
 
-  const handleBlured = (e: any) => {
+  const handleBlured = (e: FocusEvent<HTMLInputElement>) => {
     handleBlur(e);
     setFocused(false);
   };
@@ -41,7 +47,7 @@ const Input: FC<Props> = ({
   return (
     <>
       <Field name={name}>
-        {({ field }: any) => (
+        {({ field }: FieldAttributes<any>) => (
           <div
             className={
               errors && touched
