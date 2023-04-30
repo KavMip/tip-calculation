@@ -35,5 +35,5 @@ Users should be able to:
 ## Author
 
 - LinkedIn - [Kovalevsky Anton](https://www.linkedin.com/in/anton-kovalevsky-kav-mip/)
-- Gmail - [Kovalevsky Anton](kovalevskiikav1504@gmail.com)
+- Gmail - [kovalevskiikav1504@gmail.com]
 - Telegram - [@kav_mip]
