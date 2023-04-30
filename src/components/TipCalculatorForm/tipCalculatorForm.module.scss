@@ -42,10 +42,46 @@
   margin-left: auto;
 }
 
+.above {
+  display: inline;
+}
+
+.below {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .above {
+    display: none;
+  }
+  
+  .below {
+    display: inline;
+  }
+}
+
 @media screen and (max-width: 706px) {
   .data-block {
     width: 74%;
     max-width: unset;
+  }
+
+  .above {
+    display: inline;
+  }
+
+  .below {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .above {
+    display: none;
+  }
+
+  .below {
+    display: inline;
   }
 }
 
@@ -60,5 +96,23 @@
 
   .radio-group {
     letter-spacing: unset;
+  }
+
+  .above {
+    display: inline;
+  }
+
+  .below {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .above {
+    display: none;
+  }
+
+  .below {
+    display: inline;
   }
 }

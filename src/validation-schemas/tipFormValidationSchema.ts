@@ -14,6 +14,6 @@ export const TipFormValidationSchema = Yup.object().shape({
         .required('Required'),
     numberOfPeople: Yup.number().required('Can\'t be zero')
         .positive('Cannot be negative')
-        .max(500, 'Cannot be more than 500')
+        .max(500, 'Less than 500')
         .notOneOf([0], 'Can\'t be zero')
 });
