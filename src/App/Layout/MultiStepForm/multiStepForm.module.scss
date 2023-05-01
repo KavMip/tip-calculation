@@ -1,0 +1,26 @@
+@import "../../../scss/variables.scss";
+
+.user-data-block {
+  background-color: $white;
+  width: 80%;
+  max-width: 900px;
+  padding: 20px 70px 20px 20px;
+  border-radius: 22px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.07);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.steps-block {
+  height: 570px;
+  width: 275px;
+  background-image: url("../../../assets/icons/bg-sidebar-desktop.svg");
+  background-repeat: no-repeat;
+}
+
+.form-block {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

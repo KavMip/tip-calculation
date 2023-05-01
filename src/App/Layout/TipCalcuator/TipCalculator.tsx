@@ -1,9 +1,9 @@
 import { FC } from "react";
-import PaymentResult from "../../../components/PaymentResult/PaymentResult";
-import TipCalculatorForm from "../../../components/TipCalculatorForm/TipCalculatorForm";
+import PaymentResult from "../../../components/TipCalculator/PaymentResult/PaymentResult";
+import TipCalculatorForm from "../../../components/TipCalculator/TipCalculatorForm/TipCalculatorForm";
 import styles from "./tipCalculator.module.scss";
 import { Formik, Form } from "formik";
-import { tipCalculatorType as TipCalculatorType } from "../../../interfaces/tips/tipTypes";
+import { tipCalculatorType as TipCalculatorType } from "../../../interfaces/tipsForm/tipTypes";
 import { TipFormValidationSchema } from "../../../validation-schemas/tipFormValidationSchema";
 
 const TipCalculator: FC = () => {

@@ -1,11 +1,11 @@
 import { FC, ChangeEventHandler, FocusEventHandler } from "react";
 import styles from "./tipCalculatorForm.module.scss";
 import { ErrorMessage, FormikErrors, FormikTouched } from "formik";
-import Input from "../../ui-kits/tip-input/Input";
-import { DollarIcon } from "../../assets/icons/DollarIcon.jsx";
-import { PersonIcon } from "../../assets/icons/PersonIcon.jsx";
-import RadioButton from "../../ui-kits/radio-button/RadioButton";
-import { tipCalculatorType as TipCalculatorType } from "../../interfaces/tips/tipTypes";
+import Input from "../../../ui-kits/tip-input/Input";
+import { DollarIcon } from "../../../assets/icons/DollarIcon.jsx";
+import { PersonIcon } from "../../../assets/icons/PersonIcon.jsx";
+import RadioButton from "../../../ui-kits/radio-button/RadioButton";
+import { tipCalculatorType as TipCalculatorType } from "../../../interfaces/tipsForm/tipTypes";
 
 interface Props {
   values: TipCalculatorType;

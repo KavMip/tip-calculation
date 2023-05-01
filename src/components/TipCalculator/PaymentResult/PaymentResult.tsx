@@ -1,7 +1,7 @@
 import { FC, useMemo, useState, useEffect } from "react";
 import styles from "./paymentResult.module.scss";
-import { tipCalculatorType as TipCalculatorType } from "../../interfaces/tips/tipTypes";
-import ResetButton from "../../ui-kits/submit-button/SubmitButton";
+import { tipCalculatorType as TipCalculatorType } from "../../../interfaces/tipsForm/tipTypes";
+import ResetButton from "../../../ui-kits/submit-button/SubmitButton";
 
 interface Props {
   values: TipCalculatorType;
