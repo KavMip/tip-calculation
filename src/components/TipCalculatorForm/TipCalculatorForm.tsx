@@ -93,6 +93,7 @@ const TipCalculatorForm: FC<Props> = ({
             className="small-input"
             placeholder="Custom"
             type="number"
+            touched={touched.numberOfPeople}
             handleChange={handleChange}
             handleBlur={handleBlur}
           />
@@ -102,7 +103,11 @@ const TipCalculatorForm: FC<Props> = ({
       <label className={styles["input-label"]} htmlFor="numberOfPeople">
         Number of people
         <ErrorMessage name="numberOfPeople">
-          {(msg) => <span className={`${styles["error"]} ${styles["above"]}`}>{msg}</span>}
+          {(msg) => (
+            <span className={`${styles["error"]} ${styles["above"]}`}>
+              {msg}
+            </span>
+          )}
         </ErrorMessage>
         <Input
           name="numberOfPeople"
@@ -116,7 +121,11 @@ const TipCalculatorForm: FC<Props> = ({
           handleBlur={handleBlur}
         />
         <ErrorMessage name="numberOfPeople">
-          {(msg) => <span className={`${styles["error"]} ${styles["below"]}`}>{msg}</span>}
+          {(msg) => (
+            <span className={`${styles["error"]} ${styles["below"]}`}>
+              {msg}
+            </span>
+          )}
         </ErrorMessage>
       </label>
     </div>

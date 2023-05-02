@@ -9,7 +9,7 @@ import { TipFormValidationSchema } from "../../../validation-schemas/tipFormVali
 const TipCalculator: FC = () => {
   const initialValues: TipCalculatorType = {
     billAmount: 0,
-    tipPercent: "0",
+    tipPercent: 0,
     numberOfPeople: 0,
   };
   return (

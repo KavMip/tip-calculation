@@ -73,7 +73,7 @@ const Input: FC<Props> = ({
             onChange={handleChange}
             onBlur={handleBlured}
             onFocus={handleFocus}
-            value={value !== 0 && value !== "0" ? value : ""}
+            value={touched ? value : undefined}
           />
         </div>
       )}
