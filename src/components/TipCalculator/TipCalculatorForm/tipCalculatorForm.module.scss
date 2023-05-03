@@ -16,6 +16,7 @@
   letter-spacing: 0.1rem;
   font-family: RobotoSlab;
   margin-top: 35px;
+  padding-bottom: 10px;
 }
 
 .group {
@@ -23,6 +24,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
+  padding-top: 10px;
   padding-bottom: 35px;
 }
 
@@ -50,11 +52,11 @@
   display: none;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1005px) {
   .above {
     display: none;
   }
-  
+
   .below {
     display: inline;
   }

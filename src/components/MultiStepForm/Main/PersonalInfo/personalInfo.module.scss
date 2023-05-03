@@ -1,0 +1,36 @@
+@import "../../../../scss/variables.scss";
+
+.block-title {
+  color: $form-title-text-color;
+  font-family: RobotoSlab;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.block-subtitle {
+  color: $light-dark-text-color;
+  margin-top: 10px;
+  font-family: RobotoSlab;
+  font-size: 16px;
+  padding-bottom: 25px;
+}
+
+.input__wrapper {
+  padding-bottom: 25px;
+}
+
+.input-label {
+  color: $dark-text-color;
+  font-weight: bold;
+  font-size: 17px;
+  letter-spacing: 0.1rem;
+  font-family: RobotoSlab;
+  position: relative;
+}
+
+.buttons-block {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+}

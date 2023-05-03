@@ -7,8 +7,12 @@ import {
 } from "../../../interfaces/multiStepForm/multiStepFormTypes";
 import SideSteps from "../../../components/MultiStepForm/SideSteps/SideSteps";
 import Main from "../../../components/MultiStepForm/Main/Main";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
 
 const MultiStepForm: FC = () => {
+  const step = useSelector((state: RootState) => state.multiStepForm.step);
+
   const initialValues: MultiStepFormType = {
     name: "",
     email: "",
@@ -28,14 +32,28 @@ const MultiStepForm: FC = () => {
           console.log(values);
         }}
       >
-        {({ values, handleChange }) => (
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleSubmit,
+          handleBlur,
+        }) => (
           <>
             <Form className={styles["form-block"]}>
               <div className={styles["steps-block"]}>
-                <SideSteps />
+                <SideSteps step={step} />
               </div>
-
-              <Main />
+              <Main
+                step={step}
+                values={values}
+                errors={errors}
+                touched={touched}
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+                handleSubmit={handleSubmit}
+              />
             </Form>
           </>
         )}

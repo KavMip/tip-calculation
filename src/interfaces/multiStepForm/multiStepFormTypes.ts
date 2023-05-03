@@ -14,3 +14,9 @@ export enum PlanType {
     Advanced,
     Pro
 }
+
+export interface PersonalInfoType {
+    name: string;
+    email: string;
+    phoneNumber: string;
+}

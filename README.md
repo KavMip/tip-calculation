@@ -15,7 +15,6 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://gregarious-syrniki-e5d726.netlify.app/]
-- Live Site URL: [https://gregarious-syrniki-e5d726.netlify.app/]
 
 ## My process
 

@@ -10,6 +10,8 @@
 
 .step__wrapper {
   display: flex;
+  font-family: RobotoSlab;
+  padding-bottom: 20px;
 }
 
 .step-number {
@@ -23,4 +25,24 @@
   align-items: center;
   margin-bottom: 20px;
   margin-right: 10px;
+}
+
+.active {
+  color: black;
+  background-color: #bee1ff;
+}
+
+.step-info-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-number-text {
+  font-size: 10px;
+  color: $dark-white-text-color;
+}
+
+.step-info-text {
+  font-size: 14px;
+  color: $white;
 }

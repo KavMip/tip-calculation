@@ -2,7 +2,7 @@
 
 .button {
   float: left;
-  width: 100px;
+  width: 105px;
   height: 40px;
   position: relative;
   background-color: $button-dart-text-color;
@@ -10,9 +10,7 @@
   font-family: RobotoSlab;
   font-size: 18px;
   text-align: center;
-  margin: 5px;
-  margin-top: 10px;
-  margin-left: 0px;
+  margin: 0px 0px 10px 0px;
   min-width: 100px;
 
   label,
@@ -36,6 +34,7 @@
   input[type="radio"] {
     opacity: 0.011;
     z-index: 100;
+    margin: 0;
 
     &:checked + label {
       background: $dark-white;

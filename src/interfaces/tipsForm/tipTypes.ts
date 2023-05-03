@@ -1,5 +1,5 @@
 export interface tipCalculatorType {
     billAmount: number;
-    tipPercent: string;
+    tipPercent: string | number;
     numberOfPeople: number;
 }

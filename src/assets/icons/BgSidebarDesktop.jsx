@@ -14,7 +14,6 @@ export const BgSidebarDesktop = () => (
       x="0"
       y="0"
       maskUnits="userSpaceOnUse"
-      style="mask-type:alpha"
     >
       <rect width="274" height="568" fill="#fff" rx="10" />
     </mask>
