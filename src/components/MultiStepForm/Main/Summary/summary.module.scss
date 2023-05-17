@@ -1,0 +1,134 @@
+@import "../../../../scss/variables.scss";
+
+.summary__wrapper {
+  position: relative;
+  max-width: 480px;
+  width: 100%;
+  height: calc(100% - 40px);
+}
+
+.block-title {
+  color: $form-title-text-color;
+  font-family: RobotoSlab;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.block-subtitle {
+  color: $light-dark-text-color;
+  margin-top: 10px;
+  font-family: RobotoSlab;
+  font-size: 16px;
+  padding-bottom: 25px;
+}
+
+.buttons-block {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.data__wrapper {
+  width: calc(100% - 40px);
+  padding: 20px;
+  background-color: $background-period;
+}
+
+.plan-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  span {
+    font-family: RobotoSlab;
+  }
+}
+.divider {
+  height: 1px;
+  background-color: $divider;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.definition {
+  span {
+    font-family: RobotoSlab;
+  }
+}
+
+.selected-plan-type {
+  margin: 0;
+  color: $form-title-text-color;
+  font-family: RobotoSlab;
+  margin-bottom: 10px;
+}
+
+.plan-change {
+  position: relative;
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  text-decoration: underline;
+  color: blue;
+  font-size: 20px;
+}
+
+.plan-price {
+  color: $form-title-text-color;
+  font-family: RobotoSlab;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.services-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  color: $summary-services-text;
+  font-family: RobotoSlab;
+  padding-bottom: 20px;
+}
+
+.service-price {
+  color: $summary-services-price;
+}
+
+.total-block {
+  width: calc(100% - 40px);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-definition {
+  color: $summary-services-text;
+  font-family: RobotoSlab;
+}
+
+.total-price {
+  font-family: RobotoSlab;
+  color: $summary-total-price;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.errors-block {
+  margin-top: 10px;
+  color: $error;
+  font-size: 20px;
+  font-family: RobotoSlab;
+  text-align: center;
+  padding-bottom: 110px;
+}

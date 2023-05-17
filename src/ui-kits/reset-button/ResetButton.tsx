@@ -1,11 +1,11 @@
 import { FC } from "react";
-import styles from "./submitButton.module.scss";
+import styles from "./resetButton.module.scss";
 interface Props {
   disabled: boolean;
   handleReset: () => void;
 }
 
-const SubmitButton: FC<Props> = ({ disabled, handleReset }) => {
+const ResetButton: FC<Props> = ({ disabled, handleReset }) => {
   return (
     <button
       className={styles["button"]}
@@ -17,4 +17,4 @@ const SubmitButton: FC<Props> = ({ disabled, handleReset }) => {
   );
 };
 
-export default SubmitButton;
+export default ResetButton;

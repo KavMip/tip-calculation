@@ -1,0 +1,58 @@
+@import "../../../../scss/variables.scss";
+
+.personal-info__wrapper{
+  position: relative;
+  max-width: 480px;
+  width: 100%;
+  height: calc(100% - 40px);
+}
+
+.block-title {
+  color: $form-title-text-color;
+  font-family: RobotoSlab;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.block-subtitle {
+  color: $light-dark-text-color;
+  margin-top: 10px;
+  font-family: RobotoSlab;
+  font-size: 16px;
+  padding-bottom: 25px;
+}
+
+.input__wrapper {
+  padding-bottom: 25px;
+}
+
+.error {
+  color: $error;
+  position: absolute;
+  right: 0;
+  margin-left: auto;
+}
+
+.input-label {
+  color: $dark-text-color;
+  font-weight: bold;
+  font-size: 17px;
+  letter-spacing: 0.1rem;
+  font-family: RobotoSlab;
+  position: relative;
+}
+
+.buttons-block {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+}
+
+.errors-block {
+  margin-top: 10px;
+  color: $error;
+  font-size: 20px;
+  font-family: RobotoSlab;
+  text-align: center;
+}

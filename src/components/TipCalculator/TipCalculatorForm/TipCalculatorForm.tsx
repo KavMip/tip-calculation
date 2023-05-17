@@ -1,18 +1,17 @@
-import { FC, ChangeEventHandler, FocusEventHandler } from "react";
+import { FC, ChangeEventHandler } from "react";
 import styles from "./tipCalculatorForm.module.scss";
 import { ErrorMessage, FormikErrors, FormikTouched } from "formik";
-import Input from "../../ui-kits/tip-input/Input";
-import { DollarIcon } from "../../assets/icons/DollarIcon.jsx";
-import { PersonIcon } from "../../assets/icons/PersonIcon.jsx";
-import RadioButton from "../../ui-kits/radio-button/RadioButton";
-import { tipCalculatorType as TipCalculatorType } from "../../interfaces/tips/tipTypes";
+import Input from "../../../ui-kits/input/Input";
+import { DollarIcon } from "../../../assets/icons/DollarIcon.jsx";
+import { PersonIcon } from "../../../assets/icons/PersonIcon.jsx";
+import RadioButton from "../../../ui-kits/radio-button/RadioButton";
+import { tipCalculatorType as TipCalculatorType } from "../../../interfaces/tipsForm/tipTypes";
 
 interface Props {
   values: TipCalculatorType;
   errors: FormikErrors<TipCalculatorType>;
   touched: FormikTouched<TipCalculatorType>;
   handleChange: ChangeEventHandler<HTMLInputElement>;
-  handleBlur: FocusEventHandler<HTMLInputElement>;
 }
 
 const TipCalculatorForm: FC<Props> = ({
@@ -20,7 +19,6 @@ const TipCalculatorForm: FC<Props> = ({
   errors,
   touched,
   handleChange,
-  handleBlur,
 }) => {
   return (
     <div className={styles["data-block"]}>
@@ -38,7 +36,6 @@ const TipCalculatorForm: FC<Props> = ({
           touched={touched.billAmount}
           Icon={DollarIcon}
           handleChange={handleChange}
-          handleBlur={handleBlur}
         />
       </label>
       <div className={styles["radio-group"]}>
@@ -53,7 +50,7 @@ const TipCalculatorForm: FC<Props> = ({
             id="radioOption1"
             name="tipPercent"
             type="radio"
-            value="5"
+            value={5}
           />
           <RadioButton
             values={values}
@@ -61,7 +58,7 @@ const TipCalculatorForm: FC<Props> = ({
             id="radioOption2"
             name="tipPercent"
             type="radio"
-            value="10"
+            value={10}
           />
           <RadioButton
             values={values}
@@ -69,7 +66,7 @@ const TipCalculatorForm: FC<Props> = ({
             id="radioOption3"
             name="tipPercent"
             type="radio"
-            value="15"
+            value={15}
           />
           <RadioButton
             values={values}
@@ -77,7 +74,7 @@ const TipCalculatorForm: FC<Props> = ({
             id="radioOption4"
             name="tipPercent"
             type="radio"
-            value="25"
+            value={25}
           />
           <RadioButton
             values={values}
@@ -85,7 +82,7 @@ const TipCalculatorForm: FC<Props> = ({
             id="radioOption5"
             name="tipPercent"
             type="radio"
-            value="50"
+            value={50}
           />
           <Input
             name="tipPercent"
@@ -93,9 +90,8 @@ const TipCalculatorForm: FC<Props> = ({
             className="small-input"
             placeholder="Custom"
             type="number"
-            touched={touched.numberOfPeople}
+            touched={touched.tipPercent}
             handleChange={handleChange}
-            handleBlur={handleBlur}
           />
         </div>
       </div>
@@ -118,7 +114,6 @@ const TipCalculatorForm: FC<Props> = ({
           touched={touched.numberOfPeople}
           Icon={PersonIcon}
           handleChange={handleChange}
-          handleBlur={handleBlur}
         />
         <ErrorMessage name="numberOfPeople">
           {(msg) => (

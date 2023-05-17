@@ -39,6 +39,13 @@
   max-width: 100px;
 }
 
+.multi-form-input {
+  input {
+    text-align: left;
+    padding-left: 10px;
+  }
+}
+
 .input-icon {
   margin-left: 15px;
   margin: auto 0 auto 20px;

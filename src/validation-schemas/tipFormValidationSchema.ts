@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 export const TipFormValidationSchema = Yup.object().shape({
     billAmount: Yup.number()
         .notOneOf([0], 'Can\'t be zero')
-        .max(10000, 'Too Long!')
+        .max(100000, 'Too Long!')
         .positive('Cannot be negative')
         .required('Required'),
     tipPercent: Yup.number()

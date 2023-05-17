@@ -1,7 +1,7 @@
 import { FC, useMemo, useState, useEffect } from "react";
 import styles from "./paymentResult.module.scss";
-import { tipCalculatorType as TipCalculatorType } from "../../interfaces/tips/tipTypes";
-import ResetButton from "../../ui-kits/submit-button/SubmitButton";
+import { tipCalculatorType as TipCalculatorType } from "../../../interfaces/tipsForm/tipTypes";
+import ResetButton from "../../../ui-kits/reset-button/ResetButton";
 
 interface Props {
   values: TipCalculatorType;
@@ -21,12 +21,12 @@ const PaymentResult: FC<Props> = ({ values, handleReset }) => {
 
   const tipAmount = useMemo(() => {
     return (
-      (values.billAmount * (+values.tipPercent / 100)) / values.numberOfPeople
+      (+values.billAmount * (+values.tipPercent / 100)) / +values.numberOfPeople
     );
   }, [values]);
 
   const totalAmount = useMemo(() => {
-    return tipAmount + values.billAmount / values.numberOfPeople;
+    return tipAmount + +values.billAmount / +values.numberOfPeople;
   }, [values, tipAmount]);
 
   return (

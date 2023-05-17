@@ -1,9 +1,4 @@
-@import './scss/fonts.scss';
-html,
-body,
-#root {
-  height: 100%;
-}
+@import "./scss/fonts.scss";
 
 body {
   --toastify-toast-width: 400px;
@@ -14,6 +9,12 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  outline: none;
+  color: unset;
+}
+
 /* -apple-system, BlinkMacSystemFont,'Roboto', 'Oxygen',
 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
 sans-serif; */
@@ -22,4 +23,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
