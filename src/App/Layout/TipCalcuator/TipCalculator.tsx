@@ -8,9 +8,9 @@ import { TipFormValidationSchema } from "../../../validation-schemas/tipFormVali
 
 const TipCalculator: FC = () => {
   const initialValues: TipCalculatorType = {
-    billAmount: 0,
-    tipPercent: 0,
-    numberOfPeople: 0,
+    billAmount: "",
+    tipPercent: "",
+    numberOfPeople: "",
   };
   return (
     <section className={styles["calculator-block"]}>
@@ -23,7 +23,6 @@ const TipCalculator: FC = () => {
           values,
           handleChange,
           handleSubmit,
-          handleBlur,
           handleReset,
           errors,
           touched,
@@ -34,7 +33,6 @@ const TipCalculator: FC = () => {
               errors={errors}
               touched={touched}
               handleChange={handleChange}
-              handleBlur={handleBlur}
             />
             <PaymentResult values={values} handleReset={handleReset} />
           </Form>

@@ -1,17 +1,23 @@
-import { FC, ChangeEventHandler, FocusEventHandler } from "react";
+import {
+  FC,
+  ChangeEventHandler,
+  useState,
+  useEffect,
+} from "react";
 import Input from "../../../../ui-kits/input/Input";
 import styles from "./personalInfo.module.scss";
 import { PersonalInfoType } from "../../../../interfaces/multiStepForm/multiStepFormTypes";
-import { ErrorMessage } from "formik";
+import { ErrorMessage, FormikErrors, FormikTouched } from "formik";
 import Button from "../../../../ui-kits/button/Button";
 import { useDispatch } from "react-redux";
 import { setStep } from "../../../../App/Layout/MultiStepForm/multiStepFormSlice";
+import { useNavigate } from "react-router-dom";
+
 interface Props {
   values: PersonalInfoType;
-  errors: any;
-  touched: any;
+  errors: FormikErrors<PersonalInfoType>;
+  touched: FormikTouched<PersonalInfoType>;
   handleChange: ChangeEventHandler<HTMLInputElement>;
-  handleBlur: FocusEventHandler<HTMLInputElement>;
 }
 
 const PersonalInfo: FC<Props> = ({
@@ -19,12 +25,28 @@ const PersonalInfo: FC<Props> = ({
   errors,
   touched,
   handleChange,
-  handleBlur,
 }) => {
+  const [dataErrors, setDataErrors] = useState(false);
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {}, [errors]);
 
   const handleClick = () => {
-    dispatch(setStep(2));
+    if (
+      errors.name !== undefined ||
+      errors.email !== undefined ||
+      errors.phoneNumber !== undefined
+    ) {
+      setDataErrors(true);
+    } else {
+      setDataErrors(false);
+      dispatch(setStep(2));
+      navigate(`/game-form/select-plan`);
+    }
+    if (!dataErrors) {
+    }
   };
 
   return (
@@ -34,13 +56,13 @@ const PersonalInfo: FC<Props> = ({
         Please provide your name, email address, add phone number.
       </p>
       <div className={styles["input__wrapper"]}>
-        <label className={styles["input-label"]} htmlFor="name">
+        <label className={styles["input-label"]} htmlFor="personalInfo.name">
           Name
-          <ErrorMessage name="name">
+          <ErrorMessage name="personalInfo.name">
             {(msg) => <span className={styles["error"]}>{msg}</span>}
           </ErrorMessage>
           <Input
-            name="name"
+            name="personalInfo.name"
             value={values.name}
             className="multi-form-input"
             placeholder="e.g. Stephen King"
@@ -48,18 +70,17 @@ const PersonalInfo: FC<Props> = ({
             errors={errors.name}
             touched={touched.name}
             handleChange={handleChange}
-            handleBlur={handleBlur}
           />
         </label>
       </div>
       <div className={styles["input__wrapper"]}>
-        <label className={styles["input-label"]} htmlFor="email">
+        <label className={styles["input-label"]} htmlFor="personalInfo.email">
           Email
-          <ErrorMessage name="email">
+          <ErrorMessage name="personalInfo.email">
             {(msg) => <span className={styles["error"]}>{msg}</span>}
           </ErrorMessage>
           <Input
-            name="email"
+            name="personalInfo.email"
             value={values.email}
             className="multi-form-input"
             placeholder="e.g. stephenking@lorem.com"
@@ -67,18 +88,20 @@ const PersonalInfo: FC<Props> = ({
             errors={errors.email}
             touched={touched.email}
             handleChange={handleChange}
-            handleBlur={handleBlur}
           />
         </label>
       </div>
       <div className={styles["input__wrapper"]}>
-        <label className={styles["input-label"]} htmlFor="phoneNumber">
+        <label
+          className={styles["input-label"]}
+          htmlFor="personalInfo.phoneNumber"
+        >
           Phone number
-          <ErrorMessage name="phoneNumber">
+          <ErrorMessage name="personalInfo.phoneNumber">
             {(msg) => <span className={styles["error"]}>{msg}</span>}
           </ErrorMessage>
           <Input
-            name="phoneNumber"
+            name="personalInfo.phoneNumber"
             value={values.phoneNumber}
             className="multi-form-input"
             placeholder="e.g. +1 234 567 890"
@@ -86,10 +109,15 @@ const PersonalInfo: FC<Props> = ({
             errors={errors.phoneNumber}
             touched={touched.phoneNumber}
             handleChange={handleChange}
-            handleBlur={handleBlur}
           />
         </label>
       </div>
+      {dataErrors && (
+        <div className={styles["errors-block"]}>
+          There are errors on your data, please recheck all information you have
+          inserted previously.
+        </div>
+      )}
       <div className={styles["buttons-block"]}>
         <Button text="Next step" type="button" onClickHandler={handleClick} />
       </div>

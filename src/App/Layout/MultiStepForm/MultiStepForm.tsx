@@ -5,42 +5,49 @@ import {
   MultiStepFormType,
   PlanType,
 } from "../../../interfaces/multiStepForm/multiStepFormTypes";
-import SideSteps from "../../../components/MultiStepForm/SideSteps/SideSteps";
+import SideSteps from "../../../components/MultiStepForm/Steps/SideSteps/SideSteps";
 import Main from "../../../components/MultiStepForm/Main/Main";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../store/store";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, AppDispatch } from "../../../store/store";
+import { MultiStepFormValidationSchema } from "../../../validation-schemas/multiStepFormValidationSchema";
+import TopSteps from "../../../components/MultiStepForm/Steps/TopSteps/TopSteps";
+import { submitForm } from "./multiStepFormSlice";
 
 const MultiStepForm: FC = () => {
   const step = useSelector((state: RootState) => state.multiStepForm.step);
+  const dispatch = useDispatch<AppDispatch>();
 
   const initialValues: MultiStepFormType = {
-    name: "",
-    email: "",
-    phoneNumber: "",
-    planType: PlanType.Arcade,
-    monthly: true,
-    onlineService: false,
-    largerStorage: false,
-    customizaleProfile: false,
+    personalInfo: {
+      name: "",
+      email: "",
+      phoneNumber: "",
+    },
+    planType: {
+      planType: PlanType.Arcade,
+      yearly: false,
+    },
+    addOns: {
+      onlineService: false,
+      largerStorage: false,
+      customizableProfile: false,
+    },
   };
 
   return (
-    <section className={styles["user-data-block"]}>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={(values) => {
-          console.log(values);
-        }}
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleSubmit,
-          handleBlur,
-        }) => (
-          <>
+    <div className={styles["mobile-steps"]}>
+      <div className={styles["steps"]}>
+        <TopSteps />
+      </div>
+      <section className={styles["user-data-block"]}>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={MultiStepFormValidationSchema}
+          onSubmit={() => {
+            dispatch(submitForm());
+          }}
+        >
+          {({ values, errors, touched, handleChange, handleSubmit }) => (
             <Form className={styles["form-block"]}>
               <div className={styles["steps-block"]}>
                 <SideSteps step={step} />
@@ -51,14 +58,14 @@ const MultiStepForm: FC = () => {
                 errors={errors}
                 touched={touched}
                 handleChange={handleChange}
-                handleBlur={handleBlur}
                 handleSubmit={handleSubmit}
               />
             </Form>
-          </>
-        )}
-      </Formik>
-    </section>
+          )}
+        </Formik>
+      </section>
+    </div>
   );
 };
+
 export default MultiStepForm;

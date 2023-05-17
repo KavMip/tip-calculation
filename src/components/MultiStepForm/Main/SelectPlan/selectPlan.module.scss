@@ -1,5 +1,12 @@
 @import "../../../../scss/variables.scss";
 
+.select-plan__wrapper {
+  width: 100%;
+  position: relative;
+  height: calc(100% - 40px);
+  max-width: 500px;
+}
+
 .block-title {
   color: $form-title-text-color;
   font-family: RobotoSlab;
@@ -23,7 +30,13 @@
 .plans-block {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.plan {
+  padding: 7px;
 }
 
 .period-block {
@@ -101,7 +114,7 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.monthly {
+.yearly {
   font-family: RobotoSlab;
   margin: 0.8em;
 }
@@ -117,4 +130,10 @@ input:checked + .slider:before {
   bottom: 10px;
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 820px) {
+  .period-block {
+    margin-bottom: 125px;
+  }
 }

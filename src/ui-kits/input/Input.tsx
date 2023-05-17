@@ -1,24 +1,18 @@
-import {
-  FC,
-  useState,
-  ChangeEventHandler,
-  FocusEventHandler,
-  FocusEvent,
-} from "react";
+import React, { FC, useState, useRef, useEffect, useCallback } from "react";
+import classNames from "classnames";
 import styles from "./input.module.scss";
 import { Field, FieldAttributes } from "formik";
 
 interface Props {
   name: string;
-  value: number | string;
+  value: number | string | "" | undefined;
   placeholder: string;
   className?: string;
   type: string;
   errors?: string | undefined;
   touched?: boolean | undefined;
   Icon?: FC;
-  handleChange: ChangeEventHandler<HTMLInputElement>;
-  handleBlur: FocusEventHandler<HTMLInputElement>;
+  handleChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 const Input: FC<Props> = ({
@@ -31,35 +25,41 @@ const Input: FC<Props> = ({
   touched,
   Icon,
   handleChange,
-  handleBlur,
 }: Props) => {
   const [focused, setFocused] = useState(false);
+  const inputWrapperRef = useRef<HTMLDivElement | null>(null);
 
-  const handleFocus = (e: FocusEvent<HTMLInputElement>) => {
+  const wrapperClassNames = classNames(
+    styles["input-wrapper"],
+    className && styles[className],
+    focused && styles["input-wrapper_active"],
+    errors && touched && styles["input-error"]
+  );
+
+  const handleFocus = useCallback(() => {
     setFocused(true);
-  };
+  }, []);
 
-  const handleBlured = (e: FocusEvent<HTMLInputElement>) => {
-    handleBlur(e);
-    setFocused(false);
-  };
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+
+      if (inputWrapperRef.current && !inputWrapperRef.current.contains(target)) {
+        setFocused(false);
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
 
   return (
     <Field name={name}>
       {({ field }: FieldAttributes<any>) => (
-        <div
-          className={
-            errors && touched
-              ? `${styles["input-wrapper"]} ${styles["input-error"]}`
-              : focused && className
-              ? `${styles[className]} ${styles["input-wrapper"]} ${styles["input-wrapper_active"]}`
-              : className
-              ? `${styles[className]} ${styles["input-wrapper"]}`
-              : focused
-              ? `${styles["input-wrapper"]} ${styles["input-wrapper_active"]}`
-              : `${styles["input-wrapper"]}`
-          }
-        >
+        <div ref={inputWrapperRef} className={wrapperClassNames}>
           {Icon && (
             <span className={styles["input-icon"]}>
               <Icon />
@@ -68,16 +68,16 @@ const Input: FC<Props> = ({
           <input
             className={styles["input"]}
             type={type}
-            {...field}
             placeholder={placeholder}
             onChange={handleChange}
-            onBlur={handleBlured}
             onFocus={handleFocus}
-            value={touched ? value : undefined}
+            value={value}
+            {...field}
           />
         </div>
       )}
     </Field>
   );
 };
+
 export default Input;

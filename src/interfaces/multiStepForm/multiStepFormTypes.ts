@@ -1,22 +1,29 @@
 export interface MultiStepFormType {
-    name: string,
-    email: string,
-    phoneNumber: string,
-    planType: PlanType,
-    monthly: boolean,
-    onlineService: boolean,
-    largerStorage: boolean,
-    customizaleProfile: boolean,
+    personalInfo: PersonalInfoType;
+    planType: SelectPlanType;
+    addOns: AddOnsType;
 }
 
 export enum PlanType {
-    Arcade,
-    Advanced,
-    Pro
+    Arcade = "Arcade",
+    Advanced = "Advanced",
+    Pro = "Pro"
 }
 
 export interface PersonalInfoType {
-    name: string;
-    email: string;
-    phoneNumber: string;
+    name: string | undefined;
+    email: string | undefined;
+    phoneNumber: string | undefined;
 }
+
+export interface SelectPlanType {
+    planType: PlanType;
+    yearly: boolean;
+}
+
+export interface AddOnsType {
+    onlineService: boolean;
+    largerStorage: boolean;
+    customizableProfile: boolean;
+}
+

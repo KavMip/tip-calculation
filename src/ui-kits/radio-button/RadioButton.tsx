@@ -6,7 +6,7 @@ interface Props extends FieldAttributes<any> {
   id: string;
   name: string;
   type: string;
-  value: string;
+  value: number;
 }
 
 const RadioButton: FC<Props> = ({
@@ -27,7 +27,8 @@ const RadioButton: FC<Props> = ({
             name={name}
             {...field}
             id={name}
-            checked={values.tipPercent === value}
+            // eslint-disable-next-line eqeqeq
+            checked={values.tipPercent == value}
             onChange={handleChange}
           />
           <label

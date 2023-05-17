@@ -1,6 +1,6 @@
 # Frontend Mentor - Tip calculator app solution
 
-This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX) and [Multi-step form](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ).
 
 ## Overview
 
@@ -8,9 +8,21 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 
 Users should be able to:
 
+Tip calculator:
 - View the optimal layout for the app depending on their device's screen size
 - See hover states for all interactive elements on the page
 - Calculate the correct tip and total cost of the bill per person
+
+Multi-step form:
+- Complete each step of the sequence
+- Go back to a previous step to update their selections
+- See a summary of their selections on the final step and confirm their order
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
+- Receive form validation messages if:
+  - A field has been missed
+  - The email address is not formatted correctly
+  - A step is submitted, but no selection has been made
 
 ### Links
 
@@ -25,12 +37,13 @@ Users should be able to:
 - Flexbox
 - Mobile-last workflow
 - [React](https://reactjs.org/) - React framework
+- [Redux-Toolkit](https://redux-toolkit.js.org/) - Redux-Toolkit
 - [TypeScript](https://www.typescriptlang.org/) - TypeScript 
 - [Formik](https://formik.org/) - Formik
 
 ### Continued development
  
- I would improve this app with this two tasks: [Multi-step form](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ) and [Kanban task management web app](https://www.frontendmentor.io/challenges/kanban-task-management-web-app-wgQLt-HlbB)
+ I would improve this app with this two tasks:[Kanban task management web app](https://www.frontendmentor.io/challenges/kanban-task-management-web-app-wgQLt-HlbB)
 
 ## Author
 

@@ -1,13 +1,13 @@
-import { FC, ChangeEventHandler, FocusEventHandler } from "react";
+import { FC, ChangeEventHandler } from "react";
 import styles from "./main.module.scss";
-import {
-  MultiStepFormType,
-  PlanType,
-} from "../../../interfaces/multiStepForm/multiStepFormTypes";
+import { MultiStepFormType } from "../../../interfaces/multiStepForm/multiStepFormTypes";
 import { FormikErrors, FormikTouched } from "formik";
 import PersonalInfo from "./PersonalInfo/PersonalInfo";
 import SelectPlan from "./SelectPlan/SelectPlan";
 import AddOns from "./AddOns/AddOns";
+import Summary from "./Summary/Summary";
+import { Route, Routes } from "react-router-dom";
+import Success from "./Success/Success";
 
 interface Props {
   step: number;
@@ -15,7 +15,6 @@ interface Props {
   errors: FormikErrors<MultiStepFormType>;
   touched: FormikTouched<MultiStepFormType>;
   handleChange: ChangeEventHandler<HTMLInputElement>;
-  handleBlur: FocusEventHandler<HTMLInputElement>;
   handleSubmit: () => void;
 }
 
@@ -25,34 +24,73 @@ const Main: FC<Props> = ({
   errors,
   touched,
   handleChange,
-  handleBlur,
   handleSubmit,
 }) => {
   return (
     <div className={styles["main-block"]}>
-      {step === 1 && (
-        <PersonalInfo
-          values={{
-            name: values.name,
-            email: values.email,
-            phoneNumber: values.phoneNumber,
-          }}
-          errors={{
-            name: errors.name,
-            email: errors.email,
-            phoneNumber: errors.phoneNumber,
-          }}
-          touched={{
-            name: touched.name,
-            email: touched.email,
-            phoneNumber: touched.phoneNumber,
-          }}
-          handleChange={handleChange}
-          handleBlur={handleBlur}
+      <Routes>
+        <Route
+          path="/personal-info"
+          element={
+            <PersonalInfo
+              values={{
+                name: values.personalInfo.name,
+                email: values.personalInfo.email,
+                phoneNumber: values.personalInfo.phoneNumber,
+              }}
+              errors={{
+                name: errors.personalInfo?.name,
+                email: errors.personalInfo?.email,
+                phoneNumber: errors.personalInfo?.phoneNumber,
+              }}
+              touched={{
+                name: touched.personalInfo?.name,
+                email: touched.personalInfo?.email,
+                phoneNumber: touched.personalInfo?.phoneNumber,
+              }}
+              handleChange={handleChange}
+            />
+          }
         />
-      )}
-      {step === 2 && <SelectPlan />}
-      {step === 3 && <AddOns />}
+        <Route
+          path="/select-plan"
+          element={
+            <SelectPlan
+              values={{
+                planType: values.planType.planType,
+                yearly: values.planType.yearly,
+              }}
+              handleChange={handleChange}
+            />
+          }
+        />
+        <Route
+          path="/add-ons"
+          element={
+            <AddOns
+              values={{
+                onlineService: values.addOns.onlineService,
+                largerStorage: values.addOns.largerStorage,
+                customizableProfile: values.addOns.customizableProfile,
+              }}
+              yearly={values.planType.yearly}
+              handleChange={handleChange}
+            />
+          }
+        />
+        <Route
+          path="/summary"
+          element={
+            <Summary
+              values={values}
+              errors={errors}
+              touched={touched}
+              handleSubmit={handleSubmit}
+            />
+          }
+        />
+        <Route path="/success" element={<Success />} />
+      </Routes>
     </div>
   );
 };
